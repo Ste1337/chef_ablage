@@ -1,0 +1,33 @@
+<?php
+
+
+$maxStartDist=100;
+
+  require_once("funktionen.php");
+
+
+
+
+
+$strDbLocation = 'mysql:dbname=<%= @configuration[:database]%>;host=<%= @configuration[:host]%>';
+// aus config laden oder hier eingeben...
+$strDbUser = '<%= @configuration[:username]%>';
+
+$strDbPassword = '<%= @configuration[:password]%>';
+
+try
+
+{
+
+  $objDb = new PDO($strDbLocation, $strDbUser, $strDbPassword);
+
+}
+
+catch (PDOException $e)
+
+{
+
+  echo 'Fehler beim &Ouml;ffnen der Datenbank: ' . $e->getMessage();
+
+}
+?>
