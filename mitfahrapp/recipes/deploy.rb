@@ -8,10 +8,9 @@ node[:deploy].each do |application, deploy|
     group deploy[:group]
     owner deploy[:user]
     variables(:configuration => deploy[:database])
-    
        
     only_if do
-      File.directory?("#{deploy[:deploy_to]}/current/sql.php")
+      File.directory?("#{deploy[:deploy_to]}/current")
     end
   end
 end
