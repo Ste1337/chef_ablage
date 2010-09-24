@@ -3,6 +3,7 @@ include_recipe "deploy" # get the deployment attributes
 node[:deploy].each do |application, deploy|
   
   template "#{deploy[:deploy_to]}/current/sql.php" do
+    backup false
     source "sql.php.erb"
     mode "0660"
     group deploy[:group]
